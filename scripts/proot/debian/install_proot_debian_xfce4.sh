@@ -10,7 +10,7 @@ pkg i termux-x11-nightly pulseaudio proot-distro -y
 pd i debian
 pd sh debian --isolated --shared-tmp -- /bin/bash -c "apt update -y && apt upgrade -y && apt install sudo nano vim wget curl git -y"
 pd sh debian --isolated --shared-tmp -- /bin/bash -c "useradd -m -u 1000 user && usermod -aG sudo user && echo 'user ALL=(ALL:ALL) ALL' > /etc/sudoers.d/user-1000"
-pd sh debian --isolated --shared-tmp -- /bin/bash -c "apt install xfce4 dbus-x11"
+pd sh debian --isolated --shared-tmp -- /bin/bash -c "apt install xfce4 dbus-x11 -y"
 cat > startxfce4_debian.sh <<'EOF'
 #!/data/data/com.termux/files/usr/bin/bash
 kill -9 $(pgrep -f "termux.x11") 2>/dev/null
